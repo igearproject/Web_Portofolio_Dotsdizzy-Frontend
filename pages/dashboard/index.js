@@ -22,7 +22,7 @@ const DashboardHome=()=>{
             <Container fluid={true} style={{minHeight:'80vh'}} className="bg-light">
                 <Row className="g-3 py-4">
                     {Array.from({ length: 12 }).map((_, idx) => (
-                        <Col md={3} >
+                        <Col md={3} key={idx}>
                             <CardProjects/>
                         </Col>
                     ))}
