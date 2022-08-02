@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: 'Playfair Display', serif; */
+  font-family: 'PT Sans', sans-serif;
 }
 
 a {
@@ -13,4 +13,36 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+/* custom bootstrap */
+.navbar{
+  height:64px;
+}
+.navbar-brand,h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+  line-height: 3rem;
+}
+.subheading{
+  /* font-weight: 700; */
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+.descheading{
+  line-height: 1.85rem;
+}
+h1{
+  font-size: 2rem;
+}
+.btn{
+  border-radius: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-transform: uppercase;
+  /* display: flex;
+  align-items:center; */
 }
