@@ -33,6 +33,7 @@ function NavbarHome(props) {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>
             <Nav.Link href="#project">Project</Nav.Link>
+            <Nav.Link href="https://www.fiverr.com/padmayasa" target="_blank">Fiverr</Nav.Link>
             {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
