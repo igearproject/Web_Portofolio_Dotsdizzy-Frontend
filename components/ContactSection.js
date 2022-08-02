@@ -57,7 +57,7 @@ const ContactSection = () => {
         <Container fluid className="bg-secondary ">
             <Row className="align-items-center pt-5 pb-5">
                 <Col md={6} className="p-md-5">
-                    <Image src="/img/ilustration/tiny/contact me.png" height="250px" width="250px" layout="responsive"/> 
+                    <Image src="/img/ilustration/tiny/contact me.png" alt="illustration contact me" height="250px" width="250px" layout="responsive"/> 
                 </Col>
                 <Col md={6} className="mt-sm-4 p-md-5">
                     <form onSubmit={(e)=>handleSubmit(e)}>

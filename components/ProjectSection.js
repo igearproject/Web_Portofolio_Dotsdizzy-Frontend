@@ -44,22 +44,22 @@ const ProjectSection = () => {
                         className="mx-md-5 mt-4 overflow-scroll d-flex flex-row flex-nowrap row-cols-2 gx-2"
                     >
                         <Col style={{minWidth:'70%'}}>
-                            <Image src="/img/ilustration/tiny/dotsdizzy 1 illustration culture and nature.png" layout="responsive" height='250px' width="250px"/>
+                            <Image src="/img/ilustration/tiny/dotsdizzy 1 illustration culture and nature.png" alt="project illustration 1" layout="responsive" height='250px' width="250px"/>
                         </Col>
                         <Col style={{minWidth:'70%'}}>
-                            <Image src="/img/ilustration/tiny/dotsdizzy 2 illustration girl dancing sumatera.png" layout="responsive" height='250px' width="250px"/>
+                            <Image src="/img/ilustration/tiny/dotsdizzy 2 illustration girl dancing sumatera.png" alt="project illustration 2" layout="responsive" height='250px' width="250px"/>
                         </Col>
                         <Col style={{minWidth:'70%'}}>
-                            <Image src="/img/ilustration/tiny/dotsdizzy 3 illustration girl dancing bali.png" layout="responsive" height='250px' width="250px"/>
+                            <Image src="/img/ilustration/tiny/dotsdizzy 3 illustration girl dancing bali.png" alt="project illustration 3" layout="responsive" height='250px' width="250px"/>
                         </Col>
                         <Col style={{minWidth:'70%'}}>
-                            <Image src="/img/ilustration/tiny/dotsdizzy 4 illustration culture and nature.png" layout="responsive" height='250px' width="250px"/>
+                            <Image src="/img/ilustration/tiny/dotsdizzy 4 illustration culture and nature.png" alt="project illustration 4" layout="responsive" height='250px' width="250px"/>
                         </Col>
                         <Col style={{minWidth:'70%'}}>
-                            <Image src="/img/ilustration/tiny/dotsdizzy 5 illustration drink.png" layout="responsive" height='250px' width="250px"/>
+                            <Image src="/img/ilustration/tiny/dotsdizzy 5 illustration drink.png" alt="project illustration 5" layout="responsive" height='250px' width="250px"/>
                         </Col>
                         <Col style={{minWidth:'70%'}}>
-                            <Image src="/img/ilustration/tiny/dotsdizzy 5 illustration girl and beauty.png" layout="responsive" height='250px' width="250px"/>
+                            <Image src="/img/ilustration/tiny/dotsdizzy 5 illustration girl and beauty.png" alt="project illustration 6" layout="responsive" height='250px' width="250px"/>
                         </Col>
                         {/* <Col style={{minWidth:'70%'}}>
                             <Image src="/img/ilustration/tiny/" layout="responsive" height='250px' width="250px"/>
@@ -68,7 +68,7 @@ const ProjectSection = () => {
                     </Row>
                     <Row>
                         <Col md={12} className="text-start text-md-center mt-4 ">
-                            <a href="https://www.instagram.com/dots_dizzy/" target="_blank">
+                            <a href="https://www.instagram.com/dots_dizzy/" target="_blank" rel="noreferrer" >
                                 <Button variant="light">
                                     <span className="me-1">See More Project</span> <AiOutlineInstagram/>
                                 </Button>

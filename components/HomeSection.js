@@ -14,7 +14,7 @@ const HomeSection = () => {
                     transition={{ type: "spring", duration: 2 }}
                 >
                     <span className="text-primary subheading">Illustration Designer</span>
-                    <h1 className="mb-2">Let's Make Unique Illustration<br/>With DotsDizzy</h1>
+                    <h1 className="mb-2">Let`&apos;s Make Unique Illustration<br/>With DotsDizzy</h1>
                     <p className="mb-4 descheading">I can help you in making illustration designs, so that your products are more attractive and easy to understand</p>
                     <a href="#about">
                         <Button variant="outline-primary">More About Me</Button>
@@ -26,7 +26,7 @@ const HomeSection = () => {
                     animate={{y:0}}
                     transition={{ type: "spring" , duration: 2 }}
                 >
-                    <Image src='/img/ilustration/tiny/i am a illustrator.png' layout="responsive" width="150px" height="150px" priority/>
+                    <Image src='/img/ilustration/tiny/i am a illustrator.png' alt="illustration i a illustrator" layout="responsive" width="150px" height="150px" priority/>
                 </motion.div>
             </Row>
         </Container>

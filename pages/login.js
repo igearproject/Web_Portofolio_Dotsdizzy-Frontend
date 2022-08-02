@@ -8,7 +8,7 @@ import userHandling from "../services/userHandling";
 import Alert from "../components/Alert";
 import CryptoJS from "crypto-js";
 
-const login = () => {
+const Login = () => {
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
     const [loading, setLoading]=useState(false);
@@ -109,4 +109,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login
