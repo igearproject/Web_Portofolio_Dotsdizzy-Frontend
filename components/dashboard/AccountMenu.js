@@ -21,8 +21,9 @@ const AccountMenu = (props) => {
             // console.log(response);
         }catch(err){
             if (err.response.status === 403) {
-                router.push('/dashboard');
+                router.push('/login');
             }else if(err.response.status === 401){
+                console.log(err.message);
             }else{
                 console.log(err.message);
             }
@@ -36,7 +37,7 @@ const AccountMenu = (props) => {
     return (
         <Dropdown className={props.className}>
             <Dropdown.Toggle variant="dark" id="account-menu-basic">
-                {userInfo.name} ({userInfo.role})
+                {userInfo.name?.substring(0, 10)} ({userInfo.role})
             </Dropdown.Toggle>
 
             <Dropdown.Menu variant="dark">

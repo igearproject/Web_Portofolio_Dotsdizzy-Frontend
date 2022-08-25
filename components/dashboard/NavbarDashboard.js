@@ -1,14 +1,19 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {useState} from 'react';
-import { BiDotsHorizontal, BiDotsVertical, BiUserCircle, BiChevronDown } from 'react-icons/bi';
+import Link from "next/link"
+import {useEffect, useState} from 'react';
+import { BiDotsHorizontal, BiDotsVertical } from 'react-icons/bi';
 import AccountMenu from './AccountMenu';
+import { useRouter } from 'next/router';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavbarDashboard(props) {
   const [showMore,setShowMore]=useState(false);
+  const router=useRouter();
+  
+  const path=router.pathname.split('/')[2]||"/"
+
   return (
     <Navbar bg={props.bgC} variant={props.variant} expand="md" fixed="top">
       <Container fluid={props.fluid} className={"bg-"+props.bgC}>
@@ -29,10 +34,30 @@ function NavbarDashboard(props) {
             style={{ maxHeight: '300px' }}
             navbarScroll
           >
-            <Nav.Link href="#home">Project</Nav.Link>
-            <Nav.Link href="#about">Category</Nav.Link>
-            <Nav.Link href="#project">Images</Nav.Link>
-            <Nav.Link href="#project">Email</Nav.Link>
+            <li className="nav-item">
+              <Link href="/dashboard" >
+                <a className={path==="/"?("nav-link active"):("nav-link")} aria-current="page" href="#">Project</a>
+              </Link>
+              
+            </li>
+            <li className="nav-item">
+              <Link href="/dashboard/category" >
+                <a className={path==="category"?("nav-link active"):("nav-link")} aria-current="page" href="#">Category</a>
+              </Link>
+              
+            </li>
+            <li className="nav-item">
+              <Link href="/dashboard/images" >
+                <a className={path==="images"?("nav-link active"):("nav-link")} aria-current="page" href="#">Images</a>
+              </Link>
+              
+            </li>
+            <li className="nav-item">
+              <Link href="/dashboard/email" >
+                <a className={path==="email"?("nav-link active"):("nav-link")} aria-current="page" href="#">Email</a>
+              </Link>
+              
+            </li>
             {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">

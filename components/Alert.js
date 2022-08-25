@@ -11,7 +11,7 @@ const Alert = (props) => {
         }else if(props.status==='error'){
             showMessage=(
                 <div className="alert alert-danger alert-dismissible" role="alert">
-                    {props.msg}
+                    <div dangerouslySetInnerHTML={{ __html: props.msg }}></div>
                     {/* <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={()=>showMessage=''}></button> */}
                 </div>
             );
