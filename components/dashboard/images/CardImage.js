@@ -6,6 +6,8 @@ const CardImage = (props) => {
     return (
         <Card 
             // className="h-100"
+            className="clickable"
+            onClick={props.showModal&&(()=>props.showModal(props.data))}
         >
             <Card.Img variant="top" src={props.data.cdnUrl||process.env.NEXT_PUBLIC_SERVER_URL_IMAGE+props.data.fileName} />
             <Card.Body>
@@ -18,9 +20,9 @@ const CardImage = (props) => {
                 <div className="text-muted">
                     {dayjs(props.data.createdAt).format('DD MMM YYYY')}
                 </div>
-                <Button variant="outline-primary border-0 shadow" onClick={()=>props.showModal(props.data)}>
+                {/* <Button variant="outline-primary border-0 shadow" onClick={()=>props.showModal(props.data)}>
                     <BiEdit/>
-                </Button>
+                </Button> */}
             </Card.Footer>
         </Card>
     )

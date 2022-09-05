@@ -99,6 +99,33 @@ class errorHandling{
         return message
     }
 
+    login(content,err){
+        let message={
+            status:'error',
+            msg:err.message
+        };
+        if (err.response){
+            if (err.response.status === 403) {
+                message.msg=`Failed to ${content}`;
+            }else if(err.response.status === 500){
+                message.msg=`Time Out or Internal Server Error`;
+            }else if(err.response.status === 400 && err.response?.data?.message){
+                if(typeof err.response.data.message==="object"){
+                    message.msg=`<ul>`
+                    err.response.data.message.map((data)=>{
+                        message.msg=message.msg+`<li>${data.message}</li>`
+                    });
+                    message.msg=message.msg+`</ul>`
+                }else{
+                    message.msg=err.response.data.message;
+                }
+            }else{
+                message.msg=`Login failed > Wrong email or password `;
+            }
+        }
+        return message
+    }
+
 }
 
 export default new errorHandling();

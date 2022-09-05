@@ -7,6 +7,7 @@ import { BsArrowReturnLeft } from "react-icons/bs";
 import userHandling from "../services/userHandling";
 import Alert from "../components/Alert";
 import CryptoJS from "crypto-js";
+import errorHandling from "../services/errorHandling";
 
 const Login = () => {
     const [email, setEmail]=useState('');
@@ -33,17 +34,18 @@ const Login = () => {
             router.push('/dashboard');
 
         }catch(err){
-            if(err.response?.data?.message){
-                setMsg({
-                    status:'error',
-                    msg:err.response.data.message
-                });
-            }else{
-                setMsg({
-                    status:'error',
-                    msg:err.message
-                });
-            }
+            // if(err.response?.data?.message){
+            //     setMsg({
+            //         status:'error',
+            //         msg:err.response.data.message
+            //     });
+            // }else{
+            //     setMsg({
+            //         status:'error',
+            //         msg:err.message
+            //     });
+            // }
+            setMsg(errorHandling.login('login',err));
             
             setLoading(false);
         }

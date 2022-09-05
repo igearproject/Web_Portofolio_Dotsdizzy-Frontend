@@ -56,7 +56,7 @@ const EmailDashBord = () => {
                 "total":response.data.total,
                 "totalPage":response.data.totalPage,
             })
-            console.log(response)
+            // console.log(response)
         }catch(err){
             setMsg(errorHandling.getData('email',err));
         }
@@ -160,7 +160,7 @@ const EmailDashBord = () => {
                     emails?.map((data,idx)=>{
                         return (
                             <Col md={6} key={idx}>
-                                <Card className="w-100 shadow" onClick={()=>showModal(data)}>
+                                <Card className="w-100 shadow clickable" onClick={()=>showModal(data)} >
                                     <Card.Header className="d-flex bg-white border-0 d-flex align-items-center justify-content-between">
                                         <span>{data.email}</span>
                                         <Button variant="outline-light" disabled={true} className="border-0">

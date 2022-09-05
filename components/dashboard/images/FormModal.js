@@ -7,7 +7,7 @@ import errorHandling from '../../../services/errorHandling';
 import { BiTrash } from 'react-icons/bi';
 
 
-const FormModal = ({show,hideModal,data,setData,msg,setMsg,get,showDelete}) => {
+const FormModal = ({show,hideModal,data,setData,msg,setMsg,get,showDelete,zIn}) => {
     const [loading,setLoading]=useState(false);
     const [progress,setProgress]=useState(0);
 
@@ -69,7 +69,7 @@ const FormModal = ({show,hideModal,data,setData,msg,setMsg,get,showDelete}) => {
             fullscreen={true} 
             onHide={() => hideModal()} 
             // scrollable={true}
-            
+            style={{"zIndex":zIn?(zIn):(1055)}}
         >
             <form onSubmit={data._id?((e)=>handleUpdate(e)):((e)=>handleAdd(e))} encType='multipart/form-data'>
                 <Modal.Header closeButton
@@ -172,7 +172,7 @@ const FormModal = ({show,hideModal,data,setData,msg,setMsg,get,showDelete}) => {
                     <Button variant="primary"  type="submit" disabled={loading} size="lg">
                         {loading&&(<Spinner animation="border" size="sm"/>)} {!data._id?("Save"):("Save Changes")}
                     </Button>
-                    {data._id&&(
+                    {data._id&&showDelete&&(
                     <Button variant="outline-danger"  type="button" disabled={loading} onClick={()=>showDelete(data)} size="lg">
                         <BiTrash/>
                     </Button>

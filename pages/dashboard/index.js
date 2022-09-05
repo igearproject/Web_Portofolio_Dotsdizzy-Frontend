@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Container, Row, Col, Stack, Button, Breadcrumb, Form, FloatingLabel, InputGroup, Modal, Spinner, Pagination } from "react-bootstrap";
 import NavbarDashboard from "../../components/dashboard/NavbarDashboard";
 import Footer from "../../components/Footer";
-import { BiFilter, BiPlus, BiSave, BiSearch, BiTrash, BiX } from "react-icons/bi";
+import { BiFilter, BiPlus, BiSave, BiSearch, BiTrash, BiUpload, BiX } from "react-icons/bi";
 import CardProjects from "../../components/CardProjects";
 import { useEffect, useState } from "react";
 import projectHandling from "../../services/projectHandling";
@@ -10,6 +10,8 @@ import categoryHandling from "../../services/categoryHandling";
 import errorHandling from "../../services/errorHandling";
 import Alert from "../../components/Alert";
 import SelectCategory from "../../components/dashboard/SelectCategory";
+import Thumbnail from "../../components/Thumbnail";
+import AddImageToProjectModal from "../../components/dashboard/projects/AddImageToProjectModal";
 
 const DashboardHome=()=>{
     const [projects,setProjects]=useState([]);
@@ -123,6 +125,8 @@ const DashboardHome=()=>{
 
     const [showAdd,setShowAdd]=useState(false);
     const [loadingAdd,setLoadingAdd]=useState(false);
+    
+    const [showImageToProject,setShowImageToProject]=useState(false);
 
     const handleChange=async(e)=>{
         if(e.target.name==="url"){
@@ -453,6 +457,16 @@ const DashboardHome=()=>{
                                 </FloatingLabel>
                             </Col>
                             <Col md={4}>
+                                {project._id&&(
+                                    <div className="mb-3">
+                                        <Thumbnail images={project.images}/>
+                                        <div className="d-grid gap-2">
+                                            <Button variant="outline-primary" onClick={()=>setShowImageToProject(true)}>
+                                                <BiUpload/> Set Image
+                                            </Button>
+                                        </div>
+                                    </div>
+                                )}
                                 <Form.Group className="mb-3" controlId="formCategory">
                                     <Form.Label>Categorys</Form.Label>
                                     <SelectCategory result={setProject} value={project.categorys}/>
@@ -576,6 +590,16 @@ const DashboardHome=()=>{
                 </Modal.Footer>
             </form>
             </Modal>
+            <AddImageToProjectModal 
+                show={showImageToProject}
+                setShow={setShowImageToProject}
+                data={project}
+                setData={setProject}
+                msg={msg}
+                setMsg={setMsg}
+                reloadData={getData}
+                // hideOtherModal={hideOtherModal}
+            />
             <Footer/>
         </>
     );

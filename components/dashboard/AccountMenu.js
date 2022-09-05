@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
 import {useRouter} from "next/router";
-import { Dropdown } from "react-bootstrap";
+import { Dropdown, Spinner } from "react-bootstrap";
 import { BiLogOut } from "react-icons/bi";
 import { RiUserSettingsLine } from "react-icons/ri";
 import CryptoJS from "crypto-js";
 import userHandling from "../../services/userHandling";
+import Link from "next/link";
 
 const AccountMenu = (props) => {
     const [userInfo,setUserInfo]=useState([]);
     // const [key,setKey]=useState(process.env.NEXT_PUBLIC_SECRET_KEY);
     const [token,setToken]=useState('');
+    const [loadingLogout,setLoadingLogout]=useState(false);
+    const [msg,setMsg]=useState({
+        status:'',
+        msg:''
+    });
     const router=useRouter();
+    const path=router.pathname.split('/')[2]||"/"
+
     const getData=async()=>{
         try{
             const encryptToken=localStorage.getItem('token');
@@ -34,6 +42,21 @@ const AccountMenu = (props) => {
     useEffect(()=>{
         getData()
     },[])
+
+    const handleLogout=async()=>{
+        setLoadingLogout(true)
+        try{
+            await userHandling.logout();
+            localStorage.removeItem('token');
+            router.push('/login');
+        }catch(err){
+            setMsg({
+                status:'error',
+                msg:'Logout failed >> '+err.message,
+            })
+        }
+        setLoadingLogout(false)
+    }
     return (
         <Dropdown className={props.className}>
             <Dropdown.Toggle variant="dark" id="account-menu-basic">
@@ -41,8 +64,16 @@ const AccountMenu = (props) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu variant="dark">
-                <Dropdown.Item href="#/action-1"><RiUserSettingsLine/> Account Setting</Dropdown.Item>
-                <Dropdown.Item href="#/action-2"><BiLogOut/> logout</Dropdown.Item>
+                <li>
+                    <Link href="/dashboard/account">
+                        <a href="#">
+                            <div className={path==="account"?("dropdown-item disabled"):("dropdown-item")} >
+                                <RiUserSettingsLine/> Account Setting
+                            </div>
+                        </a>
+                    </Link>
+                </li>
+                <Dropdown.Item href="#" onClick={handleLogout}>{loadingLogout?(<Spinner size="sm"/>):(<BiLogOut/>)} logout</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     )

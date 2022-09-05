@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {Col, Button, Row, Modal, Form, InputGroup, Spinner} from 'react-bootstrap';
 import {BiSearch,BiX,BiFilter, BiSave} from 'react-icons/bi';
 
-const SearchAndFilter = ({optionGetData,setOptionGetData}) => {
+const SearchAndFilter = ({optionGetData,setOptionGetData,zIn}) => {
 
     const [showSearch,setShowSearch]=useState(false);
     const [loadingSearch,setLoadingSearch]=useState(false);
@@ -68,6 +68,9 @@ const SearchAndFilter = ({optionGetData,setOptionGetData}) => {
                 show={showSearch} 
                 fullscreen={false} 
                 onHide={() => hideSearchModal()} 
+
+                
+                style={{zIndex:zIn||3000}}
                 
                 >
                 <form onSubmit={handleFilter}>
