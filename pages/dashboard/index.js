@@ -197,8 +197,20 @@ const DashboardHome=()=>{
         try{
             const response=await projectHandling.updateOne(project);
             getData();
-            await setProject(response.data.data);
-            // console.log(project);
+            let data={
+                title:response.data.data.title,
+                description:response.data.data.description,
+                tags:response.data.data.tags,
+                url:response.data.data.url,
+                metaKeyword:response.data.data.metaKeyword,
+                metaDescription:response.data.data.metaDescription,
+                published:response.data.data.published,
+                showAtHome:response.data.data.showAtHome,
+                categorys:response.data.data.categorys,
+            }
+            setProject(prev=>({...prev,data}));
+            
+            // console.log(data);
             // e.target.reset();
             setMsg({
                 status:"success",

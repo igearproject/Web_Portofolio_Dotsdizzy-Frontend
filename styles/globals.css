@@ -50,3 +50,7 @@ h1{
 .clickable{
   cursor:pointer;
 }
+
+.hover-white:hover{
+  color:white;
+}

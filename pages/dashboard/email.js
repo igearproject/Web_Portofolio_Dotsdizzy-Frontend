@@ -40,11 +40,7 @@ const EmailDashBord = () => {
         // sortOption:'desc',
         limit:10
     });
-
-    useEffect(()=>{
-        getData()
-    },[optionGetData.page,optionGetData.searchKey,optionGetData.limit])
-
+    
     const getData=async()=>{
         setLoading(true);
         try{
@@ -62,6 +58,11 @@ const EmailDashBord = () => {
         }
         setLoading(false);
     }
+
+    useEffect(()=>{
+        getData()
+    },[optionGetData.page,optionGetData.searchKey,optionGetData.limit])
+    
     const [show,setShow]=useState(false);
     
     const showModal=async(data)=>{

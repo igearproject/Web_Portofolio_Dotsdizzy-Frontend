@@ -75,6 +75,7 @@ const DeleteModalImages = ({show, setShow, data, setData, msg, setMsg, get}) => 
                                         placeholder="blur" 
                                         blurDataURL="/loading.png"
                                         height="250px" width="250px" layout="fixed" 
+                                        alt="image to delete"
                                         src={data.cdnUrl||process.env.NEXT_PUBLIC_SERVER_URL_IMAGE+data.fileName} />
                                 )}
                             </Col>

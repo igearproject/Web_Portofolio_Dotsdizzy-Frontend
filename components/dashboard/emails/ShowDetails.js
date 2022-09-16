@@ -1,8 +1,14 @@
 import dayjs from "dayjs";
 import {Button, Col, Modal, Row, Table, Card} from 'react-bootstrap';
 import { BiCheck, BiCopy, BiRightArrowAlt, BiTrash, BiX } from 'react-icons/bi';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import ToastMessage from "../../ToastMessage";
+import { useState } from "react";
 
 const ShowDetails = ({show,hideModal,data,showDelete}) => {
+  const [toastMsg,setToastMsg]=useState([]);
+  const [showToast,setShowToast]=useState(false);
+
   return (
     <Modal 
         show={show} 
@@ -28,12 +34,30 @@ const ShowDetails = ({show,hideModal,data,showDelete}) => {
                                 <tr className="border-0">
                                   <td className="border-0">Name</td>
                                   <td className="border-0">:</td>
-                                  <td className="border-0">{data.name} <BiCopy/></td>
+                                  <td className="border-0">
+                                    {data.name} 
+                                    <CopyToClipboard text={data.name}
+                                       onCopy={() => {setShowToast(true); setToastMsg({status:"success",msg:"Name copied"})}}
+                                    >
+                                      <div className="btn btn-sm btn-light"><BiCopy/></div>
+                                    </CopyToClipboard>
+                                  </td>
                                 </tr>
                                 <tr className="border-0">
                                   <td className="border-0">Email</td>
                                   <td className="border-0">:</td>
-                                  <td className="border-0">{data.verifed?(<BiCheck className="text-success"/>):(<BiX className="text-warning"/>)} {data.email} <BiCopy/></td>
+                                  <td className="border-0">
+                                    {data.verifed?(
+                                      <BiCheck className="text-success"/>
+                                    ):(
+                                      <BiX className="text-warning"/>
+                                    )} {data.email} 
+                                    <CopyToClipboard text={data.email}
+                                       onCopy={() => {setShowToast(true); setToastMsg({status:"success",msg:"Email copied"})}}
+                                    >
+                                      <div className="btn btn-sm btn-light"><BiCopy/></div>
+                                    </CopyToClipboard>
+                                  </td>
                                 </tr>
                               </tbody>
                             </Table>
@@ -54,7 +78,16 @@ const ShowDetails = ({show,hideModal,data,showDelete}) => {
                                 <span><BiRightArrowAlt className="text-success"/> {message.emailTo}</span>
                               </Card.Header>
                               <Card.Body>
-                                  {message.subject&&(<Card.Title>{message.subject} <BiCopy/> </Card.Title>)}
+                                  {message.subject&&(
+                                    <Card.Title>
+                                      {message.subject} 
+                                      <CopyToClipboard text={message.subject}
+                                        onCopy={() => {setShowToast(true); setToastMsg({status:"success",msg:"Subject copied"})}}
+                                      >
+                                        <div className="btn btn-sm btn-light"><BiCopy/></div>
+                                      </CopyToClipboard>
+                                    </Card.Title>
+                                  )}
                                   <Card.Text>
                                     {message.message}
                                   </Card.Text>
@@ -65,6 +98,12 @@ const ShowDetails = ({show,hideModal,data,showDelete}) => {
                       })}
                       
                     </Row>
+                    <ToastMessage
+                        show={showToast}
+                        setShow={setShowToast}
+                        msg={toastMsg}
+                        position="top-center"
+                    />
                 
             </Modal.Body>
             {/* <Modal.Footer 

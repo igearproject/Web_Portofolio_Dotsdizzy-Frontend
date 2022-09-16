@@ -92,6 +92,7 @@ const FormModal = ({show,hideModal,data,setData,msg,setMsg,get,showDelete,zIn}) 
                                         placeholder="blur" 
                                         blurDataURL="/loading.png"
                                         height="250px" width="250px" layout="fixed" 
+                                        alt="image to edit"
                                         src={data.cdnUrl||process.env.NEXT_PUBLIC_SERVER_URL_IMAGE+data.fileName} 
                                     />
                                 )}

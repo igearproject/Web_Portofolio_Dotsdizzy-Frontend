@@ -10,6 +10,13 @@ class projectHandling{
             },
         });
     }
+    async getAllPublish(option){
+        return http.get(`project/published?page=${option.page}&limit=${option.limit}&searchKey=${option.searchKey}&searchBy=${option.searchBy}&sortBy=${option.sortBy}&sortOption=${option.sortOption}&category=${option.category}&tags=${option.tags}`);
+    }
+
+    async getOnePublish(_id){
+        return http.get(`project/published/${_id}`);
+    }
 
     async addOne(data){
         const token=await getToken.new();

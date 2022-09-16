@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import {AiOutlineInstagram} from 'react-icons/ai';
 import { motion, useAnimation } from "framer-motion";
@@ -67,11 +68,19 @@ const ProjectSection = () => {
                         
                     </Row>
                     <Row>
-                        <Col md={12} className="text-start text-md-center mt-4 ">
+                        <Col md={12} className="d-flex flex-wrap align-items-center justify-content-center g-2 text-start text-md-center mt-4 ">
+                            <Link href="/gallery">
+                                <a href="#" >
+                                    <Button variant="secondary" className="border-0 shadow me-3">See More In Gallery</Button>
+                                </a>
+                            </Link>
                             <a href="https://www.instagram.com/dots_dizzy/" target="_blank" rel="noreferrer" >
-                                <Button variant="light">
+                                <Button variant="outline-secondary" className="border-0 shadow me-3">
                                     <span className="me-1">See More Project</span> <AiOutlineInstagram/>
                                 </Button>
+                            </a>
+                            <a href="https://www.shutterstock.com/g/dotsdizzy" target="_blank" rel="noreferrer">
+                                <Button variant="outline-secondary" className="border-0 shadow">Buy My Stock in Shutterstock</Button>
                             </a>
                         </Col>
                     </Row>

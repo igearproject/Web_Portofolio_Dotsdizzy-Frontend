@@ -22,6 +22,7 @@ const Thumbnail = ({images}) => {
                     src={img.cdnUrl||process.env.NEXT_PUBLIC_SERVER_URL_IMAGE+img.fileName} 
                     width="250px" height="250px" 
                     key={img.fileName}
+                    alt={img.alt_text||img.fileName}
                     className="card-img-top"
                 />
             </>

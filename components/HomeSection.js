@@ -9,7 +9,7 @@ const HomeSection = () => {
             <Row style={{minHeight:'480px',alignItems:'center',marginTop:'64px'}}>
                 <motion.div 
                     className="p-md-5 pt-4 mb-3 align-items-center col-md-6"
-                    initial={{y:-300}}
+                    initial={{y:-500}}
                     animate={{y:0}}
                     transition={{ type: "spring", duration: 2 }}
                 >
@@ -22,7 +22,7 @@ const HomeSection = () => {
                 </motion.div>
                 <motion.div 
                     className="col-md-6 mb-4 p-md-5"
-                    initial={{y:300}}
+                    initial={{y:500}}
                     animate={{y:0}}
                     transition={{ type: "spring" , duration: 2 }}
                 >
