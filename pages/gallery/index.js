@@ -4,8 +4,8 @@ import Thumbnail from '../../components/Thumbnail';
 import errorHandling from '../../services/errorHandling';
 import projectHandling from '../../services/projectHandling';
 import { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-Skeleton';
-import 'react-loading-Skeleton/dist/Skeleton.css';
+// import Skeleton from 'react-loading-skeleton';
+// import 'react-loading-skeleton/dist/skeleton.css';
 import SearchAndFilterProjectSSR from '../../components/dashboard/projects/SearchAndFilterProjectSSR';
 import PaggingProjectSSR from '../../components/dashboard/projects/PaggingProjectSSR';
 import HomeLayout from '../../components/layout/HomeLayout';
@@ -99,14 +99,15 @@ const Gallery = ({data,error,option,paginateSSR}) => {
             </Container>
             <Container fluid={true} style={{minHeight:'80vh'}} className="bg-light">
                 <Row className="g-4 pb-4">
-                    {loading?(
-                        Array.from({ length: 8 }).map((_, idx) => (
-                            <Col sm={6} md={3} key={idx}>
-                                <Skeleton height={'250px'} width={"100%"}/>
-                            </Col>
-                        ))
+                    {
+                    // loading?(
+                    //     Array.from({ length: 8 }).map((_, idx) => (
+                    //         <Col sm={6} md={3} key={idx}>
+                    //             <Skeleton height={'250px'} width={"100%"}/>
+                    //         </Col>
+                    //     ))
                         
-                    ):(
+                    // ):(
                         data?.map((project,idx)=>{
                             return (
                                 project.images.length>0&&(
@@ -140,7 +141,8 @@ const Gallery = ({data,error,option,paginateSSR}) => {
                                 )
                             )
                         })
-                    )}                    
+                    // )
+                    }                    
                                             
                 </Row>
                 <PaggingProjectSSR
