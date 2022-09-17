@@ -7,8 +7,8 @@ import { BiEdit, BiPlus, BiTrash } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import errorHandling from "../../services/errorHandling";
 import categoryHandling from "../../services/categoryHandling";
-import Skeleton from 'react-loading-Skeleton';
-import 'react-loading-Skeleton/dist/Skeleton.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const DashboardCategory=()=>{
 

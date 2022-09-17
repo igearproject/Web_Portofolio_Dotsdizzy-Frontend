@@ -10,8 +10,8 @@ import emailHandling from '../../services/emailHandling';
 import errorHandling from '../../services/errorHandling';
 import ShowDetails from '../../components/dashboard/emails/ShowDetails';
 import DeleteEmailModal from '../../components/dashboard/emails/DeleteEmailModal';
-import Skeleton from 'react-loading-Skeleton';
-import 'react-loading-Skeleton/dist/Skeleton.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import SearchEmail from '../../components/dashboard/emails/SearchEmail';
 import PaggingEmail from '../../components/dashboard/emails/PaggingEmail';
 
