@@ -71,16 +71,16 @@ const ProjectSection = () => {
                         <Col md={12} className="d-flex flex-wrap align-items-center justify-content-center g-2 text-start text-md-center mt-4 ">
                             <Link href="/gallery">
                                 <a href="#" >
-                                    <Button variant="secondary" className="border-0 shadow me-3">See More In Gallery</Button>
+                                    <Button variant="secondary" className="border-0 shadow me-3 mb-3">See More In Gallery</Button>
                                 </a>
                             </Link>
                             <a href="https://www.instagram.com/dots_dizzy/" target="_blank" rel="noreferrer" >
-                                <Button variant="outline-secondary" className="border-0 shadow me-3">
+                                <Button variant="outline-secondary" className="border-0 shadow me-3 mb-3">
                                     <span className="me-1">See More Project</span> <AiOutlineInstagram/>
                                 </Button>
                             </a>
                             <a href="https://www.shutterstock.com/g/dotsdizzy" target="_blank" rel="noreferrer">
-                                <Button variant="outline-secondary" className="border-0 shadow">Buy My Stock in Shutterstock</Button>
+                                <Button variant="outline-secondary" className="border-0 shadow me-3 mb-3">Buy My Stock in Shutterstock</Button>
                             </a>
                         </Col>
                     </Row>
